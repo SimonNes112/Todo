@@ -1,3 +1,4 @@
 class Task < ApplicationRecord
-    belongs_to :user, optional: true
+    belongs_to :user, default: -> { Current.user } 
+    
 end

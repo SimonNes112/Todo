@@ -1,10 +1,3 @@
-// Configure your import map in config/importmap.rb. Read more: https://github.com/rails/importmap-rails
-import "@hotwired/turbo-rails"
-import "controllers"
-
-
-//require("packs/task")
-
 window.onload = function () {
     bootlint.showLintReportForCurrentDocument([], {
         hasProblems: false,
