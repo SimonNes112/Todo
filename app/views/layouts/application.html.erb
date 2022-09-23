@@ -8,9 +8,11 @@
     <%= csp_meta_tag %>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
-
+    
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
+
+  
   </head>
   <body class="controller-<%= params[:controller].parameterize %>">
 
@@ -22,18 +24,18 @@
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav">
         
-        <li class="nav-item">
+        
           <p class="navbar-text float-right">
             <% if user_signed_in? %>
+            
               Logged in as <strong><%= current_user.email %></strong>.
-              <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> |
-              <%= link_to "Log out", destroy_user_session_path,
-              data: {
-               "turbo-method": :delete
-              } %>
-              <li class="nav-item">
+            
+            
+              <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> |<%= button_to 'logout', destroy_user_session_path, method: :delete , :class => 'btn btn-link'  %>
+              
+            </li>
               <%= link_to "task", "../tasks" , class: "nav-link"  %>
-              </li>
+              
             <% else %>
               <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %> |
               <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>
