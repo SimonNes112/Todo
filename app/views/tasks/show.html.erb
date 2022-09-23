@@ -1,8 +1,13 @@
 <p style="color: green"><%= notice %></p>
+<% Task::STATUSES.each do |status| %>
+  <%= link_to change_status_task_path(@task, status: status), method: :patch do %>
+    <%= status %>
+  <% end %>
+<% end %>
 
-<%= render @task %>
-
-<div>
+  <%= render @task  %>
+  
+<div> 
   <%= link_to "Edit this task", edit_task_path(@task) %> |
   <%= link_to "Back to tasks", tasks_path %>
 

@@ -7,6 +7,14 @@ class TasksController < ApplicationController
     @task = Task.new
   end
 
+  def change_status
+    @task = Task.find(params[:id])
+    if params[:status].present? && Task::STATUSES.include?(params[:status].to_sym)
+      @task.update(status: params[:status])
+    end
+    redirect_to @task, notice: "Status updated to #{@task.status}"
+  end
+
 
   # GET /tasks/1 or /tasks/1.json
   def show

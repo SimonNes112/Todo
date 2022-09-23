@@ -15,7 +15,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_19_115953) do
     t.integer "user_id"
     t.date "date"
     t.string "task"
-    t.boolean "status"
+    t.boolean "status", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
