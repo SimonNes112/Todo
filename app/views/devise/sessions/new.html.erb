@@ -6,8 +6,8 @@
     
     <form class="login-form">
     <h2>Login</h2>
-      <%= f.email_field :email, autofocus: true, autocomplete: "email" , placeholder: "Email"%>
-      <%= f.password_field :password, autocomplete: "current-password" , placeholder: "Password" %>
+      <%= f.email_field :email, autofocus: true, autocomplete: "email" , placeholder: "Email" ,required: true%>
+      <%= f.password_field :password, autocomplete: "current-password" , placeholder: "Password", required: true %>
       <button><%= f.submit "Log in" %></button>
       <p class="message">Not registered?<%= render "devise/shared/links" %> </p>
       

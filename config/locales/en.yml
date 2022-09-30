@@ -31,3 +31,9 @@
 
 en:
   hello: "Hello world"
+
+  task:
+    complete:
+      tooltip: 'Task is complete'
+    incomplete:
+      tooltip: 'Task is incomplete'

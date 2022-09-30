@@ -24,11 +24,13 @@ gem "turbo-rails"
 
 # Hotwire's modest JavaScript framework [https://stimulus.hotwired.dev]
 gem "stimulus-rails"
-
+gem 'slim-rails', '~> 3.1', '>= 3.1.1'
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 gem "jbuilder"
 gem "font-awesome-sass", "~> 6.2.0"
 gem 'material_icons'
+gem 'rubocop'
+
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"
 
@@ -71,4 +73,11 @@ group :test do
   gem "capybara"
   gem "selenium-webdriver"
   gem "webdrivers"
+  gem 'rspec', '~> 3.5'
+  gem 'rspec-rails'
+  gem 'factory_bot_rails'
+  gem 'redcarpet'
+  gem 'shoulda-matchers', require: false
 end
+
+gem "date_validator", "~> 0.12.0"

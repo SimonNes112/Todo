@@ -5,14 +5,14 @@
   <div class="form">
     <form class="register-form">
     <h2>Sign up</h2>
-    <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "Email" %>
+    <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "Email" ,required: true%>
     <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "Password (6 characters minimum)" %>
       
     <% if @minimum_password_length %>
       <br />
     
     <% end %>
-          <%= f.password_field :password, autocomplete: "new-password", placeholder: "Password (6 characters minimum)" %>
+          <%= f.password_field :password, autocomplete: "new-password", placeholder: "Password (6 characters minimum)" ,required: true%>
       
       <button><%= f.submit "Sign up" %></button>
       <p class="message">Already registered? <%= render "devise/shared/links" %></p>
