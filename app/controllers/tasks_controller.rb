@@ -1,39 +1,32 @@
 class TasksController < ApplicationController
-  before_action :set_task, only: %i[ show edit update destroy ]
+  before_action :set_task, only: %i[ show edit update destroy change_status ]
 
   # GET /tasks or /tasks.json
   def index
-    @tasks = Task.where(:user_id => current_user.id)
+    @tasks = current_user.tasks
     @task = Task.new
   end
 
   def change_status
-    @task = Task.find(params[:id])
+    
     if params[:status].present? 
       @task.update(status: params[:status])
     end
-    redirect_to @task, notice: "Status updated to #{@task.status}"
+    redirect_to :tasks, notice: "Status updated to #{@task.status}"
   end
 
 
-  # GET /tasks/1 or /tasks/1.json
-  def show
-    
-  end
+  
+  
 
   # GET /tasks/new
   def new
-    @task = Task.new
-  end
-
-  # GET /tasks/1/edit
-  def edit
-    
+    @task = current_user.tasks.new
   end
 
   # POST /tasks or /tasks.json
   def create
-    @task = Task.new(task_params)
+    @task = current_user.tasks.new(task_params)
 
     respond_to do |format|
       if @task.save
@@ -72,11 +65,11 @@ class TasksController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_task
-      @task = Task.find(params[:id])
+      @task = current_user.tasks.find(params[:id])
     end
 
     # Only allow a list of trusted parameters through.
     def task_params
-      params.require(:task).permit(:user_id, :date, :task, :status)
+      params.require(:task).permit( :date, :task, :status)
     end
 end

@@ -18,7 +18,7 @@ describe Task do
     end
 
     it 'requires a date in the future' do
-        task = Task.new(date: Date.today - 1.day)
+        task = FactoryBot.build(:task, date: Date.today - 1.day)
         task.valid?
 
         puts task.errors.inspect
